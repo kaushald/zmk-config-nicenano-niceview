@@ -22,6 +22,20 @@
             hold-trigger-on-release;
             hold-trigger-key-positions = <0 1 2 3 4 5 17 38 37 29 36 28 16 15 27 26 14 13 24 12 25 39 40 41>;
         };
+
+        hml: hml {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HML";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <50>;
+            flavor = "balanced";
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41 36 37 38>;
+        };
     };
 
     keymap {
@@ -35,10 +49,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB    &kp Q              &kp W         &kp E            &kp R        &kp T        &kp Y      &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&kp LCTRL  &hmr LEFT_SHIFT A  &hmr LCTRL S  &hmr LEFT_ALT D  &hmr LCMD F  &kp G        &kp H      &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z              &kp X         &kp C            &kp V        &kp B        &kp N      &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                                            &kp LGUI         &mo 1        &kp ENTER    &kp SPACE  &mo 2  &kp RALT
+&kp TAB    &kp Q              &kp W         &kp E            &kp R        &kp T        &kp Y      &kp U        &kp I             &kp O         &kp P                  &kp BSPC
+&kp LCTRL  &hmr LEFT_SHIFT A  &hmr LCTRL S  &hmr LEFT_ALT D  &hmr LCMD F  &kp G        &kp H      &hml RCMD J  &hml RIGHT_ALT K  &hml RCTRL L  &hml RIGHT_SHIFT SEMI  &kp SQT
+&kp LSHFT  &kp Z              &kp X         &kp C            &kp V        &kp B        &kp N      &kp M        &kp COMMA         &kp DOT       &kp FSLH               &kp ESC
+                                            &kp LGUI         &mo 1        &kp ENTER    &kp SPACE  &mo 2        &kp RALT
             >;
         };
 
